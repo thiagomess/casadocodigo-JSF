@@ -22,7 +22,15 @@
 			<h:outputLabel value="Preço: "/>
 			<h:inputText value="#{adminLivrosBean.livro.preco}" />
 		</div>
+		<div>
+			<h:outputLabel value="Autor: "/>
+			<h:selectManyListbox value="#{adminLivrosBean.autoresId}" converter="javax.faces.Integer">
+				<f:selectItems value="#{adminLivrosBean.autores}" var="autor" itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
+			</h:selectManyListbox>
+		</div>
+		<br/>
 		<h:commandButton value="Cadastrar" action="#{adminLivrosBean.salvar}" />
+		<h:commandLink action="#{adminLivrosBean.listaLivros}">Ver lista de livros</h:commandLink>
 	</h:form>
 
 </html>
