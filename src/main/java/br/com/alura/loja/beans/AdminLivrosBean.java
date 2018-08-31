@@ -1,9 +1,10 @@
 package br.com.alura.loja.beans;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -13,7 +14,7 @@ import br.com.alura.loja.dao.LivroDao;
 import br.com.alura.loja.models.Autor;
 import br.com.alura.loja.models.Livro;
 
-//CDI
+//CDI pode ser usado assim ou a anotação @Model
 @Named
 @RequestScoped
 public class AdminLivrosBean {
@@ -24,26 +25,23 @@ public class AdminLivrosBean {
 	private LivroDao livroDao;
 	@Inject
 	private AutorDao autorDao;
-	private List<Integer> autoresId = new ArrayList<>();
+	@Inject
+	private FacesContext context;
 
-	@Transactional
+	@Transactional // Anotação que executa a transação
 	public String salvar() {
-
-		for (Integer autorId : autoresId) {
-			livro.getAutores().add(new Autor(autorId));
-
-		}
-
-		System.out.println("livro cadastrado" + livro);
 		livroDao.salva(livro);
-		this.livro = new Livro();
-	    this.autoresId = new ArrayList<>();
-	    
+
+		// Serve para adicionar a mensagem ao escopo de flash e a mensagem sobrevive até
+		// a proxima pagina que sera redirecionada
+		context.getExternalContext().getFlash().setKeepMessages(true);
+		context.addMessage(null, new FacesMessage("Livro cadastrado com sucesso"));
+
 		return listaLivros();
 	}
-	
+
 	public String listaLivros() {
-		return  "/livros/lista?faces-redirect=true";
+		return "/livros/lista?faces-redirect=true";
 	}
 
 	public List<Autor> getAutores() {
@@ -56,14 +54,6 @@ public class AdminLivrosBean {
 
 	public void setLivro(Livro livro) {
 		this.livro = livro;
-	}
-
-	public List<Integer> getAutoresId() {
-		return autoresId;
-	}
-
-	public void setAutoresId(List<Integer> autoresId) {
-		this.autoresId = autoresId;
 	}
 
 }
