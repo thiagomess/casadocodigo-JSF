@@ -4,8 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-<h:form>
+	
+	
+<!-- Serve para enviar o arquivo, nao apenas seu nome -->
+<h:form enctype="multipart/form-data">
 	<div>
 		<h:outputLabel value="Titulo: " />
 		<h:inputText value="#{adminLivrosBean.livro.titulo}" required="true"
@@ -33,7 +35,7 @@
 	<div>
 		<h:outputLabel value="Data de Publicacão " />
 		<h:inputText value="#{adminLivrosBean.livro.dataPublicacao}"
-			required="true" id="dataPublicacao"> 
+			required="true" id="dataPublicacao">
 		</h:inputText>
 		<h:message for="dataPublicacao" />
 	</div>
@@ -45,6 +47,12 @@
 				itemValue="#{autor}" itemLabel="#{autor.nome}" />
 		</h:selectManyListbox>
 		<h:message for="autor" />
+	</div>
+	<div>
+		<h:outputLabel value="Capa do Livro: " />
+		<h:inputFile value="#{adminLivrosBean.capaLivro}" required="true"
+			id="capaLivro"  />
+		<h:message for="capaLivro" />
 	</div>
 	<br />
 	<h:commandButton value="Cadastrar" action="#{adminLivrosBean.salvar}" />

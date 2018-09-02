@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 import br.com.alura.loja.models.Autor;
 
 //Efetua a conversão do Autor ID para Objeto autor da tela form
-@FacesConverter("autorConverter")
+@FacesConverter(value="autorConverter")
 public class AutorConverter implements Converter {
 
 	@Override

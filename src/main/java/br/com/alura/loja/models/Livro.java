@@ -45,6 +45,7 @@ public class Livro {
 	private List<Autor> autores = new ArrayList<>();
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPublicacao;
+	private String capaPath;
 	
 
 	public List<Autor> getAutores() {
@@ -95,10 +96,19 @@ public class Livro {
 		this.dataPublicacao = dataPublicacao;
 	}
 
+	public String getCapaPath() {
+		return capaPath;
+	}
+
+	public void setCapaPath(String capaPath) {
+		this.capaPath = capaPath;
+	}
+
 	@Override
 	public String toString() {
 		return "Livro [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", preco=" + preco
 				+ ", numeroPaginas=" + numeroPaginas + ", autores=" + autores + "]";
 	}
+
 
 }
