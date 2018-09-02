@@ -21,6 +21,23 @@ public class LivroDao {
 		String jpql = ("select distinct(l) from Livro l join fetch l.autores"); //permite que uma única consulta (em JPQL) à determinada entidade também traga outras entidades associadas
 		return manager.createQuery(jpql, Livro.class ).getResultList();
 	}
+
+	public List<Livro> ultimosLancamentos() {
+		String jpql = "select l from Livro l order by l.dataPublicacao desc";
+		return manager.createQuery(jpql, Livro.class).setMaxResults(5).getResultList();
 	
+	}
+
+	public List<Livro> demaisLivros() {
+		String jpql = "select l from Livro l order by l.dataPublicacao desc";
+		return manager.createQuery(jpql, Livro.class).setFirstResult(5).getResultList();
+	}
+
+	//Ao inves de usar o find, para nao dar erro de lazy usamos JPQL
+	public Livro carregarDetalhe(Integer id) {
+		String jpql = "select l from Livro l join fetch l.autores where l.id = :pId";
+		return manager.createQuery(jpql, Livro.class).setParameter("pId", id).getSingleResult();
+	}
+
 
 }

@@ -33,7 +33,7 @@ public class Livro {
 	private String titulo;
 	@Lob // avisa pro mysql que podera receber mto texto
 	@NotBlank
-	@Length(min=10, max=300)
+	@Length(min=10, max=1000)
 	private String descricao;
 	@DecimalMin("20")
 	private BigDecimal preco;
@@ -102,6 +102,10 @@ public class Livro {
 
 	public void setCapaPath(String capaPath) {
 		this.capaPath = capaPath;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 	@Override

@@ -35,7 +35,7 @@
 	<div>
 		<h:outputLabel value="Data de Publicacão " />
 		<h:inputText value="#{adminLivrosBean.livro.dataPublicacao}"
-			required="true" id="dataPublicacao">
+			required="true" id="dataPublicacao" converter="calendarConverter">
 		</h:inputText>
 		<h:message for="dataPublicacao" />
 	</div>
