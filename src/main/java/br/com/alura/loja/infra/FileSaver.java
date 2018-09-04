@@ -1,5 +1,6 @@
 package br.com.alura.loja.infra;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class FileSaver {
 
 		String relativePath = path + "/" + arquivo.getSubmittedFileName();
 
-		//normaliza o nome do arquivo caso tenha caracteres especiais ou acentos
+		// normaliza o nome do arquivo caso tenha caracteres especiais ou acentos
 		String relativePathNormalizer = Normalizer.normalize(relativePath, Normalizer.Form.NFD)
 				.replaceAll("[^\\p{ASCII}]", "");
 		try {
@@ -32,6 +33,23 @@ public class FileSaver {
 			throw new RuntimeException();
 		}
 		return relativePathNormalizer;
+	}
+
+	//Remove um arquivo da pasta no SO
+	public void remove(String path) {
+
+		File file = new File(SERVER_PATH + "/" + path);
+		try {
+			if (file.delete()) {
+				System.out.println(file.getName() + " foi deletado");
+			} else {
+				System.out.println("A operação de delete falhou");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
 	}
 
 	// Pega o caminho do arquivo e pega o arquivo no SO para enviar para servlet
@@ -60,4 +78,5 @@ public class FileSaver {
 		}
 
 	}
+
 }

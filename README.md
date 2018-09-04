@@ -55,3 +55,10 @@ o arquivo jar é o mysql-connector-java-5.1.35.jar
 
 5- Deve ser criado o database "casadocodigo"
 
+
+# Certificado Alura
+
+Curso Java EE parte 1: Crie sua loja online com CDI, JSF, JPA
+
+https://cursos.alura.com.br/certificate/c9b76532-4f86-4c86-80af-fe49587f464c
+

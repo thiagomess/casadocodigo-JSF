@@ -41,6 +41,10 @@
 				width="200px" alt="#{livro.titulo}" />
 			<!-- <a href="#{request.contextPath}/file/#{livro.capaPath}">Download</a> -->
 		</h:column>
+		<h:column>
+			<f:facet name="header">Remover</f:facet>
+			<h:commandButton action="#{adminListaLivrosBean.excluir(livro)}" style="font-weight:bold; text-align: center" value="X"/>
+		</h:column>
 	</h:dataTable>
 	<h:commandLink action="#{adminListaLivrosBean.novoLivro}">Adicionar novo livro</h:commandLink>
 </h:form>

@@ -39,5 +39,9 @@ public class LivroDao {
 		return manager.createQuery(jpql, Livro.class).setParameter("pId", id).getSingleResult();
 	}
 
+	public void excluir(Livro livro) {
+		manager.remove(manager.merge(livro));
+	}
+
 
 }

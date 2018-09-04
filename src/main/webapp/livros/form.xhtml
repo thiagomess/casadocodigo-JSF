@@ -7,7 +7,7 @@
 	
 	
 <!-- Serve para enviar o arquivo, nao apenas seu nome -->
-<h:form enctype="multipart/form-data">
+<h:form id="formSalva" enctype="multipart/form-data">
 	<div>
 		<h:outputLabel value="Titulo: " />
 		<h:inputText value="#{adminLivrosBean.livro.titulo}" required="true"
@@ -52,7 +52,7 @@
 		<h:outputLabel value="Capa do Livro: " />
 		<h:inputFile value="#{adminLivrosBean.capaLivro}" required="true"
 			id="capaLivro"  />
-		<h:message for="capaLivro" />
+		<h:message for="capaLivro"  />
 	</div>
 	<br />
 	<h:commandButton value="Cadastrar" action="#{adminLivrosBean.salvar}" />

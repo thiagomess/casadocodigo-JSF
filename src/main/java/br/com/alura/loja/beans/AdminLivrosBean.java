@@ -36,12 +36,17 @@ public class AdminLivrosBean {
 	
 	@Transactional // Anotação que executa a transação
 	public String salvar() throws IOException {
-		livroDao.salva(livro);
+		try {		
+			//Pega o arquivo da tela e salva no caminho especificado
+			FileSaver fileSaver = new FileSaver();
+			String caminho = fileSaver.write(capaLivro, "livros"); //Caso capa do livro já exista, joga para o catch
+			livro.setCapaPath(caminho);
+			livroDao.salva(livro);			
+			} catch (RuntimeException e) {
+			context.addMessage("formSalva:capaLivro", new FacesMessage("Está capa de Livro já está em uso"));
+			return null;
+		}
 		
-		//Pega o arquivo da tela e salva no caminho especificado
-		FileSaver fileSaver = new FileSaver();
-		String caminho = fileSaver.write(capaLivro, "livros");
-		livro.setCapaPath(caminho);
 
 		// Serve para adicionar a mensagem ao escopo de flash e a mensagem sobrevive até
 		// a proxima pagina que sera redirecionada
