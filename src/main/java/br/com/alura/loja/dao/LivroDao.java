@@ -34,7 +34,7 @@ public class LivroDao {
 	}
 
 	//Ao inves de usar o find, para nao dar erro de lazy usamos JPQL
-	public Livro carregarDetalhe(Integer id) {
+	public Livro buscaPorId(Integer id) {
 		String jpql = "select l from Livro l join fetch l.autores where l.id = :pId";
 		return manager.createQuery(jpql, Livro.class).setParameter("pId", id).getSingleResult();
 	}

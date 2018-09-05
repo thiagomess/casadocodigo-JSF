@@ -35,7 +35,7 @@ public class FileServlet extends HttpServlet {
 		resp.setHeader("Content-Disposition", "attachment; filename=\"" + arquivoFonte.getFileName().toString() + "\"");//Se usar o "attachment;" antes do "filename"
 																															//disponibiliza o arquivo para download
 //		resp.setHeader("Content-Disposition", "filename=\"" + arquivoFonte.getFileName().toString() + "\""); 
-																													
+																								
 		FileSaver.transfer(arquivoFonte, resp.getOutputStream());
 	}
 

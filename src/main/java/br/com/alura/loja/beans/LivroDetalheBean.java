@@ -15,7 +15,7 @@ public class LivroDetalheBean {
 	private Integer id;
 	
 	public Livro carregarDetalhe() {
-		return this.livro = dao.carregarDetalhe(id);
+		return this.livro = dao.buscaPorId(id);
 	}
 
 	public Livro getLivro() {
