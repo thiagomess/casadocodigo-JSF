@@ -2,9 +2,15 @@
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
-	
+
 	<application>
 		<message-bundle>jsf_messages</message-bundle>
 	</application>
-	
+
+	<converter>
+		<description>Configurando converter padrao para a classe Telefone</description>
+		<converter-for-class>java.util.Calendar</converter-for-class>
+		<converter-class>br.com.alura.loja.converts.CalendarConverter</converter-class>
+	</converter>
+
 </faces-config>

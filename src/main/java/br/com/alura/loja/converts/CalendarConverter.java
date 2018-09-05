@@ -10,8 +10,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.DateTimeConverter;
 import javax.faces.convert.FacesConverter;
 
-//Essa classe efetua a conversão da data digitada como texto para um Object do tipo Calendar.
-@FacesConverter(forClass=Calendar.class, value="calendarConverter")
+//Essa classe efetua a conversão da data digitada como texto para um Object do tipo Calendar. Configuração feita no faces-config
+@FacesConverter(forClass=Calendar.class)
 public class CalendarConverter implements Converter {
 	
 	private DateTimeConverter converter = new DateTimeConverter();

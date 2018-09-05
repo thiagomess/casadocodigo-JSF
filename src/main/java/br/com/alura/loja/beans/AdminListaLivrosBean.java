@@ -29,10 +29,6 @@ public class AdminListaLivrosBean {
 		return livros;
 	}
 
-	public String novoLivro() {
-		return "/livros/form?faces-redirect=true";
-	}
-	
 	//melhoria, pois no curso nao tinha
 	@Transactional
 	public void excluir(Livro livro) {
