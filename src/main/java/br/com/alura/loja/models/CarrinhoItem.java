@@ -7,7 +7,7 @@ public class CarrinhoItem {
 	
 	public CarrinhoItem(Livro livro) {
 		this.livro = livro;
-		this.quantidade = 1;	
+		this.quantidade =  1;	
 	}
 	
 	public Livro getLivro() {
