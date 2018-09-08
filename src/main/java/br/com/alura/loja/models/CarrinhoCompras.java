@@ -15,7 +15,6 @@ import javax.json.JsonArrayBuilder;
 import javax.transaction.Transactional;
 
 import br.com.alura.loja.dao.CompraDao;
-import br.com.alura.loja.service.PagamentoGateway;
 
 @Named // Permite que o HTML acesse essa classe no model
 @SessionScoped // Salva a sessao, usando CDI

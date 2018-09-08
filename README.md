@@ -62,3 +62,7 @@ Curso Java EE parte 1: Crie sua loja online com CDI, JSF, JPA
 
 https://cursos.alura.com.br/certificate/c9b76532-4f86-4c86-80af-fe49587f464c
 
+Java EE parte 2: Sua loja online com HTML, REST e Cache
+
+https://cursos.alura.com.br/certificate/af3209e6-1e52-40ec-b83c-c4d1b73290e8
+

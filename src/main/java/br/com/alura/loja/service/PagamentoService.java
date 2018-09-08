@@ -37,7 +37,7 @@ public class PagamentoService {
 		Compra compra = compraDao.buscaPorUuid(uuid);
 		
 		String contextPath =context.getContextPath();
-		
+		//executa a thread
 		executor.submit(() -> {
 			try {
 				String RespostaDoServicoRest = pagamentoGateway.pagar(compra.total); //Chamando o serviço rest
