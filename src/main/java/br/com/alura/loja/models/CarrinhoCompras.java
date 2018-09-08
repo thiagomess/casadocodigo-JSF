@@ -13,13 +13,9 @@ import javax.inject.Named;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.transaction.Transactional;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation.Builder;
-import javax.ws.rs.client.WebTarget;
 
 import br.com.alura.loja.dao.CompraDao;
+import br.com.alura.loja.service.PagamentoGateway;
 
 @Named // Permite que o HTML acesse essa classe no model
 @SessionScoped // Salva a sessao, usando CDI
@@ -73,14 +69,10 @@ public class CarrinhoCompras implements Serializable {
 	}
 	
 	@Transactional
-	public void salvar(Usuario usuario) {
-		Compra compra = new Compra();
-		compra.setUsuario(usuario);
+	public void salvar(Compra compra) {
 		compra.setItens(this.toJson());
+		compra.setTotal(getTotalCompra());
 		compraDao.salvar(compra);
-		
-		
-		
 	}
 	
 	public String toJson() {

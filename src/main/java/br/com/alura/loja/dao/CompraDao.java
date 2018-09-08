@@ -10,14 +10,17 @@ import br.com.alura.loja.models.Compra;
 public class CompraDao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext
 	private EntityManager manager;
 
 	public void salvar(Compra compra) {
 		manager.persist(compra);
 	}
-	
-		
-	
+
+	public Compra buscaPorUuid(String uuid) {
+		return manager.createQuery("select c from Compra c where uuid =:pUuid", Compra.class)
+				.setParameter("pUuid", uuid).getSingleResult();
+	}
+
 }
