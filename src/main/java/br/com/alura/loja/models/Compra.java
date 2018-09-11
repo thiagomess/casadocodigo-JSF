@@ -21,7 +21,7 @@ public class Compra {
 	private Usuario usuario;
 	private String itens;
 	private String uuid;
-	public BigDecimal total;
+	private BigDecimal total;
 	
 	
 	//Metodo que cria um ID unico para a compra e sera construido antes da entidade

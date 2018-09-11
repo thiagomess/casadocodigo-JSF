@@ -16,7 +16,7 @@ import javax.servlet.http.Part;
 
 public class FileSaver {
 
-	public static final String SERVER_PATH = "/Java/casadocodigo/";
+	public static final String SERVER_PATH = "/alura/casadocodigo/";
 
 	// Serve para salvar o arquivo no Sistema Operacional
 	public String write(Part arquivo, String path) {

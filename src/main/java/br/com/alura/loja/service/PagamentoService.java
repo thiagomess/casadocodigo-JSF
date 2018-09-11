@@ -40,7 +40,7 @@ public class PagamentoService {
 		//executa a thread
 		executor.submit(() -> {
 			try {
-				String RespostaDoServicoRest = pagamentoGateway.pagar(compra.total); //Chamando o serviço rest
+				String RespostaDoServicoRest = pagamentoGateway.pagar(compra.getTotal()); //Chamando o serviço rest
 				System.out.println("resposta rest: " + RespostaDoServicoRest);
 				
 				//Redirecionando para a tela nacional mandando a mensagem

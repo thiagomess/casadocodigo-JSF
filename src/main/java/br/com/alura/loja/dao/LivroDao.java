@@ -2,16 +2,19 @@ package br.com.alura.loja.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import org.hibernate.jpa.QueryHints;
 
 import br.com.alura.loja.models.Livro;
 
+@Stateful //Para parar de dar erro de lazy no serviço REST, foi transformado em EJB
 public class LivroDao {
 	
-	@PersistenceContext
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
 	private EntityManager manager;
 	
 	public void salva(Livro livro) {
