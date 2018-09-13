@@ -55,6 +55,19 @@ o arquivo jar é o mysql-connector-java-5.1.35.jar
 
 5- Deve ser criado o database "casadocodigo"
 
+6- Para o envio de email funcionar, é necessário configurar o Standalone do wildfly
+		
+		 <mail-session name="gmail" jndi-name="java:jboss/mail/gmail">
+        <smtp-server outbound-socket-binding-ref="mail-smtp-gmail"
+            ssl="true" username="SEU-NOME-DE-USUARIO" password="SUA-SENHA" />
+   		 </mail-session>
+   		 
+   E adicione o mail-smtp-gmail:
+   
+	   	<outbound-socket-binding name="mail-smtp-gmail">
+	        <remote-destination host="smtp.gmail.com" port="465" />
+	    </outbound-socket-binding>
+
 
 # Certificado Alura
 
