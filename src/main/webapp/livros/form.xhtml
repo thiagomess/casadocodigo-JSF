@@ -22,39 +22,44 @@
 	</nav>
 
 	<div class="container">
+		<div style="text-align: right">Bem vindo,
+			#{currentUser.get().nome}</div>
 		<h1>Cadastro de Livros</h1>
-		
+
 		<!-- Serve para enviar o arquivo, nao apenas seu nome -->
 		<h:form id="formSalva" enctype="multipart/form-data">
 			<div class="form-group">
 				<h:outputLabel value="Titulo: " />
 				<h:inputText value="#{adminLivrosBean.livro.titulo}" required="true"
 					id="titulo" styleClass="form-control" />
-				<h:message for="titulo" style="color:red"  />
+				<h:message for="titulo" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Descrição: " />
 				<h:inputTextarea value="#{adminLivrosBean.livro.descricao}" rows="4"
-					cols="20" required="true" id="descricao" styleClass="form-control"  pt:placeholder="No máximo 1.000 caracteres"/>
+					cols="20" required="true" id="descricao" styleClass="form-control"
+					pt:placeholder="No máximo 1.000 caracteres" />
 				<h:message for="descricao" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Número de Paginas: " />
 				<h:inputText value="#{adminLivrosBean.livro.numeroPaginas}"
 					required="true" id="numeroPaginas" styleClass="form-control" />
-				<h:message for="numeroPaginas" style="color:red"/>
+				<h:message for="numeroPaginas" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Preço: " />
-				<h:inputText  value="#{adminLivrosBean.livro.preco}" required="true"
-					id="preco" styleClass="form-control" pt:placeholder="Exemplo: 69.90"/>
-				<h:message for="preco" style="color:red"/>
+				<h:inputText value="#{adminLivrosBean.livro.preco}" required="true"
+					id="preco" styleClass="form-control"
+					pt:placeholder="Exemplo: 69.90" />
+				<h:message for="preco" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Data de Publicacão " />
-				<h:inputText value="#{adminLivrosBean.livro.dataPublicacao}" pt:placeholder="Exemplo: 01/01/2018"
-					required="true" id="dataPublicacao" styleClass="form-control" maxlength="10" />
-				<h:message for="dataPublicacao" style="color:red"/>
+				<h:inputText value="#{adminLivrosBean.livro.dataPublicacao}"
+					pt:placeholder="Exemplo: 01/01/2018" required="true"
+					id="dataPublicacao" styleClass="form-control" maxlength="10" />
+				<h:message for="dataPublicacao" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Autor: " />
@@ -63,17 +68,17 @@
 					<f:selectItems value="#{adminLivrosBean.autores}" var="autor"
 						itemValue="#{autor}" itemLabel="#{autor.nome}" />
 				</h:selectManyListbox>
-				<h:message for="autor" style="color:red"/>
+				<h:message for="autor" style="color:red" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Capa do Livro: " />
 				<h:inputFile value="#{adminLivrosBean.capaLivro}" required="true"
 					id="capaLivro" styleClass="form-control-file" />
-				<h:message for="capaLivro" style="color:red"/>
+				<h:message for="capaLivro" style="color:red" />
 			</div>
 			<br />
 			<h:commandButton styleClass="btn btn-primary" value="Cadastrar"
-				action="#{adminLivrosBean.salvar}"  />
+				action="#{adminLivrosBean.salvar}" />
 		</h:form>
 	</div>
 </h:body>
