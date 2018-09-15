@@ -91,6 +91,28 @@ o arquivo jar é o mysql-connector-java-5.1.35.jar
 	   	<outbound-socket-binding name="mail-smtp-gmail">
 	        <remote-destination host="smtp.gmail.com" port="465" />
 	    </outbound-socket-binding>
+7- Adicionar no	 <subsystem xmlns="urn:jboss:domain:security:2.0"> para poder validar o usuario na area administrativa http://localhost:8080/casadocodigo/usuarios/login.xhtml
+	    
+	    
+	         <subsystem xmlns="urn:jboss:domain:security:2.0">
+            		<security-domains>
+			<!-- Adicionar esse bloco, inicio --> 
+			
+				  <security-domain name="database-login" cache-type="default">
+				    <authentication>
+					<login-module code="Database" flag="required">
+					    <module-option name="dsJndiName" value="java:jboss/datasources/casadocodigoDS"/>
+					    <module-option name="principalsQuery" value="select senha from SystemUser where email = ?"/>
+					    <module-option name="rolesQuery" value="select sysRole.roles_name, 'Roles' from SystemUser_SystemRole sysRole inner join SystemUser su on sysRole.SystemUser_id = su.id where su.email = ?"/>
+					    <module-option name="hashAlgorithm" value="SHA-256"/>
+					    <module-option name="hashEncoding" value="base64"/>
+					</login-module>
+				    </authentication>
+				</security-domain>
+				
+				<!-- fim --> 
+			</security-domains>
+		</subsystem>
 
 
 # Certificado Alura
