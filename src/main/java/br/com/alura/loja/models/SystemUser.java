@@ -1,15 +1,17 @@
 package br.com.alura.loja.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -28,8 +30,12 @@ public class SystemUser {
 	private String nome;
 	@NotBlank
 	private String senha;
-	@ManyToMany(fetch = FetchType.EAGER)
-	private List<SystemRole> roles = new ArrayList<>();
+	@ElementCollection(fetch=FetchType.EAGER, targetClass= TipoRole.class)
+	@Enumerated(EnumType.STRING)
+	@Column(name = "roles_name", nullable = false)
+	@JoinTable(name="systemUser_SystemRole")
+	private List<TipoRole> role;
+	
 
 	public String getEmail() {
 		return email;
@@ -47,12 +53,12 @@ public class SystemUser {
 		this.senha = senha;
 	}
 
-	public List<SystemRole> getRoles() {
-		return roles;
+	public List<TipoRole> getRole() {
+		return role;
 	}
 
-	public void setRoles(List<SystemRole> roles) {
-		this.roles = roles;
+	public void setRole(List<TipoRole> role) {
+		this.role = role;
 	}
 
 	public Integer getId() {

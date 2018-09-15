@@ -20,11 +20,12 @@
 	</context-param>
 
 	<security-constraint>
-		<display-name>Administracao</display-name>
+		<display-name>Administracao Admin</display-name>
 		<web-resource-collection>
-			<web-resource-name>administracao</web-resource-name>
+			<web-resource-name>administrador</web-resource-name>
 			<description>Segurança para as urls que levam a administracao da aplicação</description>
-			<url-pattern>/livros/*</url-pattern>
+			<url-pattern>/livros/usuario.xhtml</url-pattern>
+			<url-pattern>/livros/listaUsuarios.xhtml</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
@@ -32,6 +33,22 @@
 			<role-name>ADMIN</role-name>
 		</auth-constraint>
 	</security-constraint>
+	
+	<security-constraint>
+		<display-name>Administracao Usuario</display-name>
+		<web-resource-collection>
+			<web-resource-name>usuario</web-resource-name>
+			<description>Segurança para as urls que levam a administracao da aplicação</description>
+			<url-pattern>/livros/form.xhtml</url-pattern>
+			<url-pattern>/livros/lista.xhtml</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>USER</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
 	
 	<login-config>
 		<auth-method>FORM</auth-method>

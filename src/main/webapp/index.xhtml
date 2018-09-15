@@ -171,9 +171,16 @@
 							Web
 						</a>
 					</li>
-					<c:if test="#{currentUser.hasRole('ADMIN')}" >
+					<c:if test="#{currentUser.hasRole('USER')}" >
 					<li class="colecoesDaCDC-colecaoItem">
 						<a href="${request.contextPath}/livros/lista.xhtml" class="colecoesDaCDC-colecaoLink">
+							Admin
+						</a>
+					</li>
+					</c:if>
+					<c:if test="#{currentUser.hasRole('ADMIN')}" >
+					<li class="colecoesDaCDC-colecaoItem">
+						<a href="${request.contextPath}/livros/usuario.xhtml" class="colecoesDaCDC-colecaoLink">
 							Admin
 						</a>
 					</li>

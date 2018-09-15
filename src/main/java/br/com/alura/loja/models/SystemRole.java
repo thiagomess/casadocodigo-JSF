@@ -3,7 +3,6 @@ package br.com.alura.loja.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class SystemRole {
 	
 	@Id

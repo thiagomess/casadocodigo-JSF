@@ -8,12 +8,12 @@ import javax.transaction.Transactional;
 
 import br.com.alura.loja.models.CarrinhoCompras;
 import br.com.alura.loja.models.Compra;
-import br.com.alura.loja.models.Usuario;
+import br.com.alura.loja.models.Cliente;
 
 @Model
 public class CheckoutBean {
 	
-	private Usuario usuario = new Usuario();
+	private Cliente usuario = new Cliente();
 
 	@Inject 
 	private CarrinhoCompras carrinho;
@@ -33,11 +33,11 @@ public class CheckoutBean {
 		response.setHeader("Location", contextPath + "/service/pagamento?uuid=" + compra.getUuid());
 	}
 	
-	public Usuario getUsuario() {
+	public Cliente getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Cliente usuario) {
 		this.usuario = usuario;
 	}
 	

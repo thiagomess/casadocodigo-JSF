@@ -3,7 +3,29 @@ Utilizando JSF, CDI, JPA para fazer o site da casa do codigo
 
 Documentação: https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/index.html
 
+*************************************************************************************
+ADCIONADO VÁRIAS MELHORIAS QUE NAO HAVIA NO CURSO
 
+Criado uma tela de login utilizando bootstrap na url 
+http://localhost:8080/casadocodigo/usuarios/login.xhtml
+
+Criado tela para o cadastro de novos usuarios e de lista: 
+http://localhost:8080/casadocodigo/livros/usuario.xhtml
+http://localhost:8080/casadocodigo/livros/listaUsuarios.xhtml
+
+Alterado a forma que era inserido a ROLE, foi criado um ENUM para exibir na tela.
+
+Alterado os acessos as paginas, usuario com role ADMIN tem acesso a algumas paginas e usuario com Role USER tem acesso a outras.
+
+Adiciona botão para remover livro da lista e adicionado metodo para apagar o arquivo da pasta do SO
+
+Adicionado mensagens de erro caso tente inserir uma capa de livro que já exista
+
+Commits: 
+https://github.com/thiagomess/casadocodigo-JSF/commit/d786e2d56c8ad5269b7381722492ef54307fcc10
+
+
+*************************************************************************************
 
  1 -Sistema utilizando Widfly 13.0
 

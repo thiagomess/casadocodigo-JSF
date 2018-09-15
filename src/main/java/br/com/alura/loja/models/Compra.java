@@ -18,7 +18,7 @@ public class Compra {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne(cascade=CascadeType.PERSIST)
-	private Usuario usuario;
+	private Cliente usuario;
 	private String itens;
 	private String uuid;
 	private BigDecimal total;
@@ -31,11 +31,11 @@ public class Compra {
 	}
 	
 
-	public Usuario getUsuario() {
+	public Cliente getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Cliente usuario) {
 		this.usuario = usuario;
 	}
 

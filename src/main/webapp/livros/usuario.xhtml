@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+
+</head>
+<ui:composition template="/templates/_admin_template.xhtml"> 
+	<ui:param name="usuario" value="active"/>
+	<ui:define name="body">
+		<h1>Cadastro de Usuário</h1> 
+
+		<!-- Serve para enviar o arquivo, nao apenas seu nome -->
+		<h:form id="formSalva" enctype="multipart/form-data">
+			<div align="right">
+				<h:link  outcome="listaUsuarios" immediate="true" style="font-size: 20px" value="Lista de Usuários"/>
+			</div>
+			<h:message id="home" for="home" style="color:green" />
+			
+			<div class="form-group">
+				<h:outputLabel value="Nome: " />
+				<h:inputText value="#{adminUserBean.user.nome}" required="true"
+					id="nome" styleClass="form-control" pt:placeholder="Nome do usuário" />
+				<h:message for="nome" style="color:red" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Email: " />
+				<h:inputText value="#{adminUserBean.user.email}" required="true"
+					id="email" styleClass="form-control" pt:placeholder="exemplo@exemplo.com.br"/>
+				<h:message for="email" style="color:red" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Senha: " />
+				<h:inputText value="#{adminUserBean.senhaTela}" pt:placeholder="No mínimo 6 caracteres"
+					required="true" id="senha" styleClass="form-control" pt:type="password"/>
+				<h:message for="senha" style="color:red"  />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Perfil: " />
+				<h:selectManyListbox value="#{adminUserBean.user.role}" required="true"
+					 id="role" styleClass="form-control"  converter="omnifaces.GenericEnumConverter">
+					<f:selectItems value="#{adminUserBean.roles}" var="role"
+						itemValue="#{role}" itemLabel="#{role.label}" />
+				</h:selectManyListbox>
+				<h:message for="role" style="color:red" />
+			</div>
+			
+			<br />
+			<h:commandButton styleClass="btn btn-primary" value="Cadastrar"
+				action="#{adminUserBean.salvar}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
