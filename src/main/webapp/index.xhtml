@@ -173,7 +173,7 @@
 					</li>
 					<c:if test="#{currentUser.hasRole('USER')}" >
 					<li class="colecoesDaCDC-colecaoItem">
-						<a href="${request.contextPath}/livros/lista.xhtml" class="colecoesDaCDC-colecaoLink">
+						<a href="${request.contextPath}/admin/livros/lista.xhtml" class="colecoesDaCDC-colecaoLink">
 							Admin
 						</a>
 					</li>
@@ -426,6 +426,21 @@
 		</ul>
 	</div>
 </footer>
+<SCRIPT>
+	
+	/* conexao webSocket com a classe PromosEndpoint, onde recebe um JSON */
+	var canalDePromos = new WebSocket ("ws://localhost:8080/#{request.contextPath}/canal/promos");
+	canalDePromos.onmessage = function(message){
+		var novaPromo = JSON.parse(message.data);
+		if(confirm("Que tal aproveitar a promoção relâmpago " + novaPromo.titulo)){
+			document.location.href="#{request.contextPath}/produtos/livro-detalhe.xhtml?id=" + novaPromo.livroId;
+			
+		}
+	}
+
+
+</SCRIPT>
+
 
 <script type="text/javascript" src="#{request.contextPath}/resources/js/trackExternalLinks.js"></script>
 	

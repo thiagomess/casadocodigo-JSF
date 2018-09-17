@@ -19,13 +19,15 @@
 			<ul class="navbar-nav mr-auto">
 				<c:if test="#{currentUser.hasRole('USER')}" >
 					<li class="nav-item #{lista}"><h:link styleClass="nav-link"
-							value="Lista" outcome="lista" /></li>
+							value="Lista" outcome="/admin/livros/lista" /></li>
 					<li class="nav-item #{cadastro}"><h:link styleClass="nav-link"
-							value="Cadastro" outcome="form" /></li>
+							value="Cadastro" outcome="/admin/livros/form" /></li>
+					<li class="nav-item #{promo}"><h:link styleClass="nav-link"
+							value="Promoções Relâmpago" outcome="/admin/promo" /></li>
 				</c:if>			
 				<c:if test="#{currentUser.hasRole('ADMIN')}" >
 					<li class="nav-item #{usuario}"><h:link styleClass="nav-link"
-							value="Usuário" outcome="usuario" /></li>
+							value="Usuário" outcome="/admin/usuario" /></li>
 				</c:if>			
 			</ul>
 

@@ -125,3 +125,7 @@ Java EE parte 2: Sua loja online com HTML, REST e Cache
 
 https://cursos.alura.com.br/certificate/af3209e6-1e52-40ec-b83c-c4d1b73290e8
 
+Curso Java EE parte 3: Finalizando sua loja com REST, JMS, JAAS e WebSockets
+
+https://cursos.alura.com.br/certificate/e7af2402-986c-4d6f-ac6f-3475ec5d3d29
+

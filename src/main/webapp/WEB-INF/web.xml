@@ -13,7 +13,10 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-
+	<context-param> <!-- serve para o .xhtml ignorar os comentarios -->
+		<param-name>facelets.SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
 	<context-param>
 		<param-name>org.omnifaces.CACHE_SETTING_APPLICATION_TTL</param-name>
 		<param-value>300</param-value>
@@ -24,8 +27,8 @@
 		<web-resource-collection>
 			<web-resource-name>administrador</web-resource-name>
 			<description>Segurança para as urls que levam a administracao da aplicação</description>
-			<url-pattern>/livros/usuario.xhtml</url-pattern>
-			<url-pattern>/livros/listaUsuarios.xhtml</url-pattern>
+			<url-pattern>/admin/usuario.xhtml</url-pattern>
+			<url-pattern>/admin/listaUsuarios.xhtml</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
@@ -39,8 +42,9 @@
 		<web-resource-collection>
 			<web-resource-name>usuario</web-resource-name>
 			<description>Segurança para as urls que levam a administracao da aplicação</description>
-			<url-pattern>/livros/form.xhtml</url-pattern>
-			<url-pattern>/livros/lista.xhtml</url-pattern>
+			<url-pattern>/admin/livros/form.xhtml</url-pattern>
+			<url-pattern>/admin/livros/lista.xhtml</url-pattern>
+			<url-pattern>/admin/promo.xhtml</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>

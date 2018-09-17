@@ -42,16 +42,16 @@ public class CurrentUser {
 			return "error";
 		}
 		if (request.isUserInRole("USER")) {
-			return "/livros/lista.xhtml?faces-redirect=true";
+			return "/admin/livros/lista.xhtml?faces-redirect=true";
 		} else
-			return "/livros/usuario.xhtml?faces-redirect=true";
+			return "/admin/usuario.xhtml?faces-redirect=true";
 			
 	}
 
 	public String logout() {
 		request.getSession().invalidate();
 
-		return "/livros/lista.xhtml?faces-redirect=true";
+		return "/usuarios/login.xhtml?faces-redirect=true";
 	}
 
 	// Exibe o usuario logado na aplicação
