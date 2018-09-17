@@ -7,7 +7,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +29,7 @@ public class SystemUser {
 	private String nome;
 	@NotBlank
 	private String senha;
-	@ElementCollection(fetch=FetchType.EAGER, targetClass= TipoRole.class)
+	@ElementCollection
 	@Enumerated(EnumType.STRING)
 	@Column(name = "roles_name", nullable = false)
 	@JoinTable(name="systemUser_SystemRole")
