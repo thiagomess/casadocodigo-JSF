@@ -39,7 +39,7 @@
 				<h:outputLabel value="Tempo em minutos que a promoção será válida: " />
 				<h:inputText value="#{adminPromoBean.promo.tempo}" required="true"
 					id="tempo" styleClass="form-control"  pt:placeholder="Exemplo: '10', que seria 10 minutos" >
-					<f:convertNumber integerOnly="true" />
+					<f:convertNumber integerOnly="true" minIntegerDigits="1" pattern="####" maxFractionDigits="0"/>
 				</h:inputText>
 				<h:message for="tempo" style="color:red" />
 			</div>			
