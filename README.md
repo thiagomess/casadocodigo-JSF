@@ -14,17 +14,21 @@ Documentação: https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-fa
 	http://localhost:8080/casadocodigo/livros/listaUsuarios.xhtml
 
 * Alterado a forma que era inserido a ROLE, foi criado um ENUM para exibir na tela.
-
 * Alterado os acessos as paginas, usuario com role ADMIN tem acesso a algumas paginas e usuario com Role USER tem acesso a outras.
-
 * Adiciona botão para remover livro da lista e adicionado metodo para apagar o arquivo da pasta do SO
-
 * Adicionado mensagens de erro caso tente inserir uma capa de livro que já exista
+* Adicionado Modal em bootstrap  para a o pop-up da promoção
+* Adicionado template em todas as paginas web
+* Adicionado regra de negocio, apos o admin lançar a promoção é adicionado um tempo que ela será válida e uma query ira alterar no banco e depois do tempo terminado ele volta o preço que estava anteriormente com serviço assincrono.
+
+
 
 Commits das melhorias: 
 https://github.com/thiagomess/casadocodigo-JSF/commit/d786e2d56c8ad5269b7381722492ef54307fcc10
 
 https://github.com/thiagomess/casadocodigo-JSF/commit/4eb52d700909f25de89ca75fd954962fa7a365fc
+
+https://github.com/thiagomess/casadocodigo-JSF/commit/7694acbecd74a0897b07a3516e10a03dcb5561a8
 
 
 *************************************************************************************
