@@ -17,7 +17,7 @@ public class HomeBean {
 
 	public List<Livro> ultimosLancamentos() {
 		System.out.println("Entrando nos ultimos Lancamentos");
-		return dao.ultimosLancamentos();
+		return dao.ultimosLancamentosCache();
 	}
 
 	public List<Livro> demaisLivros(){

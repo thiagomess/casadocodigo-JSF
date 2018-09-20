@@ -1,20 +1,18 @@
 package br.com.alura.loja.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 
 import org.hibernate.jpa.QueryHints;
 
 import br.com.alura.loja.models.Livro;
 
-@Stateful //Para parar de dar erro de lazy no serviço REST, foi transformado em EJB
 public class LivroDao {
 	
-	@PersistenceContext(type = PersistenceContextType.EXTENDED)
+	@PersistenceContext
 	private EntityManager manager;
 	
 	public void salva(Livro livro) {
@@ -26,11 +24,17 @@ public class LivroDao {
 		String jpql = ("select distinct(l) from Livro l join fetch l.autores"); //permite que uma única consulta (em JPQL) à determinada entidade também traga outras entidades associadas
 		return manager.createQuery(jpql, Livro.class ).getResultList();
 	}
-
-	public List<Livro> ultimosLancamentos() {
-		String jpql = "select l from Livro l order by l.dataPublicacao desc";
-		return manager.createQuery(jpql, Livro.class).setMaxResults(5).setHint(QueryHints.HINT_CACHEABLE, true).getResultList(); //SetHint Vai cachear a busca
 	
+	public List<Livro> ultimosLancamentosCache() {
+		String jpql = "select l from Livro l join fetch l.autores order by l.dataPublicacao desc";
+		return manager.createQuery(jpql, Livro.class).setMaxResults(5).setHint(QueryHints.HINT_CACHEABLE, true).getResultList(); //SetHint Vai cachear a busca
+		
+	}
+	//Utilizado pelo servico que disponibiliza o Webxml/json da classe LivroResource
+	public List<Livro> ultimosLancamentos() {
+		String jpql = "select l from Livro l join fetch l.autores order by l.dataPublicacao desc";
+		return manager.createQuery(jpql, Livro.class).setMaxResults(5).getResultList(); 
+		
 	}
 
 	public List<Livro> demaisLivros() {
@@ -46,6 +50,12 @@ public class LivroDao {
 
 	public void excluir(Livro livro) {
 		manager.remove(manager.merge(livro));
+	}
+
+	public void alteraValor(BigDecimal novoValor, Integer id) {
+		String jpql = "UPDATE Livro l SET l.preco = :pNovoValor WHERE l.id = :pId";
+		manager.createQuery(jpql).setParameter("pNovoValor", novoValor).setParameter("pId", id).executeUpdate();
+		
 	}
 
 

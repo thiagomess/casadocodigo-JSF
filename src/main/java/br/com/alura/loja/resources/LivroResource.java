@@ -13,6 +13,9 @@ import org.jboss.resteasy.annotations.providers.jaxb.Wrapped;
 import br.com.alura.loja.dao.LivroDao;
 import br.com.alura.loja.models.Livro;
 
+/*
+ * Classe que disponibiliza uma webService com os ultimos livros em XML ou JSON
+*/
 @Path("/livros")
 public class LivroResource {
 	
